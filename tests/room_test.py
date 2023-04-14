@@ -21,6 +21,10 @@ class TestRoom(unittest.TestCase):
     def test_room_has_name(self):
         self.assertEqual("PopRoom", self.pop_room.name)
 
+    def test_cash_increases(self):
+        self.pop_room.cash_increases()
+        self.assertEqual(10, self.pop_room.cash)
+
     def test_check_in_guest(self):
         self.pop_room.check_in_guest(self.guest1)
         self.assertEqual(1, len(self.pop_room.guests_checked_in))
@@ -38,9 +42,9 @@ class TestRoom(unittest.TestCase):
         self.assertEqual(0, len(self.pop_room.guests_checked_in))
 
     def test_add_songs_to_playlist(self):
-        self.rock_room.add_songs_to_playlist(self.song3)
-        self.rock_room.add_songs_to_playlist(self.song4)
-        self.assertEqual(2, len(self.rock_room.playlist))
+        self.pop_room.add_songs_to_playlist(self.song3)
+        self.pop_room.add_songs_to_playlist(self.song4)
+        self.assertEqual(2, len(self.pop_room.playlist))
 
     def test_guest_limit_reached(self):
         self.pop_room.check_in_guest(self.guest1)
