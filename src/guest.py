@@ -7,6 +7,11 @@ class Guest:
 
     def sufficient_funds(self, room):
         return self.wallet >= room.entry_fee
-    
-    def guest_wallet_decrease(self,room):
+
+    def guest_wallet_decrease(self, room):
         self.wallet -= room.entry_fee
+
+    def guest_shoutout_favourite_song(self, room):
+        for song in self.favourite_songs:
+            if song in room.playlist:
+                return "This is my JAM!"

@@ -23,13 +23,19 @@ class TestGuest(unittest.TestCase):
 
     def test_guest_has_wallet(self):
         self.assertEqual(100, self.guest3.wallet)
-    
+
     def test_sufficient_funds__true(self):
         self.assertEqual(True, self.guest3.sufficient_funds(self.pop_room))
 
     def test_sufficient_funds__false(self):
         self.assertEqual(False, self.guest2.sufficient_funds(self.pop_room))
-        
+
     def test_guest_wallet_decrease(self):
         self.guest3.guest_wallet_decrease(self.pop_room)
         self.assertEqual(90, self.guest3.wallet)
+
+    def test_guest_shoutout_favourite_song(self):
+        self.guest3.favourite_songs.append(self.song1.title)
+        self.rock_room.add_songs_to_playlist(self.song1)
+        self.assertEqual(
+            "This is my JAM!", self.guest3.guest_shoutout_favourite_song(self.rock_room))

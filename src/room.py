@@ -18,13 +18,12 @@ class Room:
             self.cash_increases()
             self.guests_checked_in.append(guest.name)
 
-
     def check_out_guest(self, guest):
         self.guests_checked_in.remove(guest.name)
 
     def clear_room(self):
         self.guests_checked_in.clear()
-        
-    def add_songs_to_playlist(self,song):
+
+    def add_songs_to_playlist(self, song):
         if song.genre == self.genre:
             self.playlist.append(song.title)
