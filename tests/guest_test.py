@@ -37,5 +37,4 @@ class TestGuest(unittest.TestCase):
     def test_guest_shoutout_favourite_song(self):
         self.guest3.favourite_songs.append(self.song1.title)
         self.rock_room.add_songs_to_playlist(self.song1)
-        self.assertEqual(
-            "This is my JAM!", self.guest3.guest_shoutout_favourite_song(self.rock_room))
+        self.assertEqual("This is my JAM!", self.guest3.guest_shoutout_favourite_song(self.rock_room))
