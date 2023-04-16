@@ -52,3 +52,4 @@ class TestRoom(unittest.TestCase):
         self.assertEqual(2, len(self.pop_room.guests_checked_in))
         self.pop_room.check_in_guest(self.guest3)
         self.assertEqual(2, len(self.pop_room.guests_checked_in))
+

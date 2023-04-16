@@ -7,6 +7,7 @@ class Room:
         self.playlist = []
         self.cash = 0
         self.guests_checked_in = []
+        self.guest_tab = {}
 
     def cash_increases(self):
         self.cash += self.entry_fee
@@ -27,3 +28,4 @@ class Room:
     def add_songs_to_playlist(self, song):
         if song.genre == self.genre:
             self.playlist.append(song.title)
+
