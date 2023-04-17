@@ -7,14 +7,13 @@ class Room:
         self.playlist = []
         self.cash = 0
         self.guests_checked_in = []
-        self.guest_tab = {}
+        
 
     def cash_increases(self):
         self.cash += self.entry_fee
 
     def check_in_guest(self, guest):
-        if len(self.guests_checked_in) < self.guest_limit:
-            guest.sufficient_funds(self)
+        if len(self.guests_checked_in) < self.guest_limit and guest.sufficient_funds(self):
             guest.guest_wallet_decrease(self)
             self.cash_increases()
             self.guests_checked_in.append(guest.name)
